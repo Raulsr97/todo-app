@@ -1,9 +1,14 @@
+import '../styles/TodoItem.css'
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+
 function TodoItem(props) {
     return(
-      <li>
+      <li className='todo'>
         <span>v</span>
         <p>{props.text}</p>
-        <span>x</span>
+        <span>
+          <CheckCircleIcon style={{ fontSize: 24, color: '#ffffff' }} />
+        </span>
       </li>
     )
 }

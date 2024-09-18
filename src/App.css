@@ -4,11 +4,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url('https://files.oaiusercontent.com/file-GDkwNLnDfYSWwt14KEqeUBju?se=2024-09-17T22%3A57%3A42Z&sp=r&sv=2024-08-04&sr=b&rscc=max-age%3D604800%2C%20immutable%2C%20private&rscd=attachment%3B%20filename%3D25730b02-ca08-46dd-bf11-756c9a26c1b8.webp&sig=e73eU0QiCnAdbCdC7xkJFXBudn/REaBDBq5RIQUAN6U%3D');
-  background-size: cover; /* Hace que la imagen abarque todo el fondo */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-position: center; /* Centra la imagen en la pantalla */
-  background-attachment: fixed; /* Mantiene la imagen fija cuando se desplaza */
+  background: linear-gradient(to bottom, #3AA6B9, #2B7681);
+  margin: 0;
 }
 .App {
   width: 100%;
@@ -45,4 +42,5 @@ body {
   backdrop-filter: blur(10px); /* Difumina el fondo detrás del contenedor */
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Sombra suave para dar efecto de flotación */
   border: 1px solid rgba(255, 255, 255, 0.3); /* Borde sutil transparente */
+  padding: 10px;
 }

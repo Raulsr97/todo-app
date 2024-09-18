@@ -1,0 +1,13 @@
+.todo {
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    width: 90%;
+    height: auto;
+    border: solid 1px black;
+}
+
+span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
