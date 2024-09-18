@@ -1,13 +1,14 @@
-.todo-input {
-    width: 78%;
+.create-input {
     height: 42px;
     border-radius: 12px;
-    border: none;
+    border: solid 1px #987eff;
     padding-left: 20px;
     outline: none;
+    margin-left: 12px;
+    margin-top: 70px;
 }
 
-.todo-input::placeholder {
+.create-input::placeholder {
     font-weight: bold;
     color: #d6d6d5;
 }

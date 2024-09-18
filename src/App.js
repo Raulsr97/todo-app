@@ -4,6 +4,7 @@ import TodoSearch from './components/TodoSearch';
 import TodoList from './components/TodoList';
 import CreateTodoButton from './components/CreateTodoButton';
 import TodoItem from './components/TodoItem';
+import TodoCreate from './components/TodoCreate';
 
 const defaultTodos = [
   {text: 'aprender ingles', completed: true},
@@ -16,9 +17,17 @@ function App() {
   return (
     <div className='App'>
     <div className='todo-form'>
+      <p>ToDo App</p>
+      <TodoCreate />
       <CreateTodoButton />
     </div>
     <div className='todo-container'>
+      <div className='counter-container'>
+          <TodoCounter 
+            completed={45}
+            total={67}
+          />
+      </div>
     <TodoSearch />
     <TodoList>
         {defaultTodos.map(todo => (
@@ -29,10 +38,7 @@ function App() {
           />
         ))}
       </TodoList>
-      <TodoCounter 
-        completed={45}
-        total={67}
-      />
+      
     </div>
    </div>
   );

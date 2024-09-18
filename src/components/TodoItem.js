@@ -1,14 +1,20 @@
 import '../styles/TodoItem.css'
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function TodoItem(props) {
     return(
       <li className='todo'>
-        <span>v</span>
         <p>{props.text}</p>
-        <span>
-          <CheckCircleIcon style={{ fontSize: 24, color: '#ffffff' }} />
-        </span>
+        <div>
+          <span>
+            <CheckCircleOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
+          </span>
+          <span>
+          <DeleteOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
+          </span>
+        </div>
+        
       </li>
     )
 }

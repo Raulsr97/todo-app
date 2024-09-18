@@ -1,13 +1,17 @@
 .todo {
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-    width: 90%;
-    height: auto;
-    border: solid 1px black;
+    display: flex;
+    width: 80%;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+}
+p {
+    color: #7b7a8b;
+    font-weight: bold;
+    
 }
 
-span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
