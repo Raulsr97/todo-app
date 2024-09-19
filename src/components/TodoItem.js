@@ -11,7 +11,7 @@ function TodoItem(props) {
             <CheckCircleOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
           </span>
           <span>
-          <DeleteOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
+            <DeleteOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
           </span>
         </div>
         
