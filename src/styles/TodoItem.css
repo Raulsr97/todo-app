@@ -14,4 +14,35 @@ p {
     font-weight: bold;
     
 }
+.check-icon,
+.delete-icon {
+    font-size: 25px;
+    color: #c57ffe;
+}
+.delete-icon:hover {
+    color: red;
+}
+.check-icon:hover {
+    color: green;
+}
+.todo-completed{
+    display: flex;
+    width: 80%;
+    height: 42px;
+    padding-left: 20px;
+    padding-right: 10px;
+    background-color: white;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 12px;
+    text-decoration: line-through;
+    background-color: #F8F4FC; /* Fondo lila muy claro */
+    color: #8B5FBF; /* Texto lila oscuro */
+    border: 2px solid #8B5FBF; /* Borde lila oscuro */
+    opacity: 0.5; /* Reduce la opacidad para dar apariencia de inhabilitado */
+}
+
+.todo-completed .check-icon {
+    color: green;
+}
 

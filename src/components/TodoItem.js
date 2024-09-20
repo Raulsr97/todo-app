@@ -2,16 +2,16 @@ import '../styles/TodoItem.css'
 import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-function TodoItem(props) {
+function TodoItem({ text, onComplete, isCompleted }) {
     return(
-      <li className='todo'>
-        <p>{props.text}</p>
+      <li className={ isCompleted ? 'todo-completed' : 'todo'}>
+        <p>{text}</p>
         <div>
-          <span>
-            <CheckCircleOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
+          <span className=''>
+            <CheckCircleOutlineIcon className='check-icon' onClick={onComplete}/>
           </span>
-          <span>
-            <DeleteOutlineIcon style={{ fontSize: 24, color: '#c57ffe' }} />
+          <span className=''>
+            <DeleteOutlineIcon className='delete-icon'/>
           </span>
         </div>
         

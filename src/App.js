@@ -30,6 +30,15 @@ function App() {
     }
   )
 
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    )
+    newTodos[todoIndex].completed = true
+    setTodos(newTodos)
+  }
+
   return (
     <div className='App'>
     <div className='todo-form'>
@@ -51,9 +60,11 @@ function App() {
     <TodoList>
         {searchedTodos.map(todo => (
           <TodoItem 
+            isCompleted={todo.completed}
             text={todo.text} 
             key={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
           />
         ))}
       </TodoList>
