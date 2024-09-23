@@ -6,7 +6,8 @@ import TodoList from './components/TodoList';
 import CreateTodoButton from './components/CreateTodoButton';
 import TodoItem from './components/TodoItem';
 import TodoCreate from './components/TodoCreate';
-import { useState } from 'react';
+import { useLocalStorage } from './Hooks/useLocalStorage';
+import { useState, useEffect } from 'react';
 
 // const defaultTodos = [
 //   {text: 'aprender ingles', completed: true},
@@ -17,30 +18,6 @@ import { useState } from 'react';
 
 // localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
 // localStorage.removeItem('TODOS_V1')
-
-function useLocalStorage(itemName, initialValue) {
-  const localStorageItem = localStorage.getItem(itemName)
-
-  let parsedItem
-
-  if(!localStorageItem) {
-    localStorage.setItem(itemName, JSON.stringify(initialValue))
-    parsedItem = initialValue
-  } else {
-    parsedItem =  JSON.parse(localStorageItem)
-  }
-
-  const [item, setItem] = useState(parsedItem)
-
-  const saveItem = (newItem) => {
-    localStorage.setItem(itemName, JSON.stringify(newItem))
-
-    setItem(newItem)
-  }
-
-  return [item, saveItem]
-
-}
 
 function App() {
 
@@ -57,6 +34,28 @@ function App() {
     }
   )
 
+  // console.log('Log 1');
+
+  // Lo que este dentro de una funcion useEffect se renderizara hasta el ultimo
+  // useEffect(() => {
+  //   console.log('log 2');
+    
+  // })
+
+  // Si le pasamos un array vacio al final solo se va a renderizar una vez
+  // useEffect(() => {
+  //   console.log('log 2');
+  // }, [])
+
+  
+  // si le pasamos algun argumento se va a renderizar hasta que cierto evento suceda
+  // useEffect(() => {
+  //   console.log('log 2');
+    
+  // }, [totalTodos])
+
+  // console.log('log 3 ');
+
   const completeTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
@@ -66,6 +65,7 @@ function App() {
     saveTodos(newTodos)
   }
 
+  
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
