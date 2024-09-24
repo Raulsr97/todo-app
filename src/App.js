@@ -5,9 +5,12 @@ import TodoSearch from './components/TodoSearch';
 import TodoList from './components/TodoList';
 import CreateTodoButton from './components/CreateTodoButton';
 import TodoItem from './components/TodoItem';
-import TodoCreate from './components/TodoCreate';
+import TodoCreate from './components/TodoCreate'
+import { LoadingTodos } from './components/LoadingTodos';
+import { ErrorTodos } from './components/ErrorTodos';
+import { EmptyTodos } from './components/EmptyTodos';
 import { useLocalStorage } from './Hooks/useLocalStorage';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 // const defaultTodos = [
 //   {text: 'aprender ingles', completed: true},
@@ -23,7 +26,12 @@ function App() {
 
   // Estados
   const [searchValue, setSearchValue] = useState('')
-  const [todos, saveTodos] = useLocalStorage('TODOS_V1', [])
+  const {
+    item: todos , 
+    saveItem: saveTodos, 
+    loading, 
+    error
+  } = useLocalStorage('TODOS_V1', [])
 
   // Estados derivados
   const completedTodos = todos.filter(todo => !!todo.completed).length
@@ -95,6 +103,10 @@ function App() {
       setSearchValue={setSearchValue}
     />
     <TodoList>
+        {loading && <LoadingTodos />}
+        {error  && <ErrorTodos />}
+        {(!loading && searchedTodos.length == 0) && <EmptyTodos />}
+
         {searchedTodos.map(todo => (
           <TodoItem 
             isCompleted={todo.completed}
