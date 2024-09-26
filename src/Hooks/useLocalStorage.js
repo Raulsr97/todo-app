@@ -1,6 +1,18 @@
 import React from "react"
 import { useState, useEffect } from "react"
 
+// const defaultTodos = [
+//   {text: 'aprender ingles', completed: true},
+//   {text: 'aprender python', completed: false},
+//   {text: 'aprender js', completed: true},
+//   {text: 'aprender reactjs', completed: false}
+// ]
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
+// localStorage.removeItem('TODOS_V1')
+
+
+
 function useLocalStorage(itemName, initialValue) {
     const [item, setItem] = useState(initialValue)
     const [loading, setLoading] = useState(true)

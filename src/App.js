@@ -12,17 +12,6 @@ import { EmptyTodos } from './components/EmptyTodos';
 import { TodoContext } from './context/TodoContext';
 import { useContext } from 'react';
 
-// const defaultTodos = [
-//   {text: 'aprender ingles', completed: true},
-//   {text: 'aprender python', completed: false},
-//   {text: 'aprender js', completed: true},
-//   {text: 'aprender reactjs', completed: false}
-// ]
-
-// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos))
-// localStorage.removeItem('TODOS_V1')
-
-
 function App() {
 
   const {
@@ -31,7 +20,6 @@ function App() {
     completeTodo,
     deleteTodo,
     searchedTodos
-
   } = useContext(TodoContext)
 
   return (
@@ -51,7 +39,8 @@ function App() {
           {error  && <ErrorTodos />}
           {(!loading && searchedTodos.length == 0) && <EmptyTodos />}
 
-          {searchedTodos.map(todo => (
+          {searchedTodos.map((todo, index) => (
+            <li key={index}>
             <TodoItem 
               isCompleted={todo.completed}
               text={todo.text} 
@@ -60,6 +49,7 @@ function App() {
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
             />
+            </li>
           ))}
         </TodoList>
         

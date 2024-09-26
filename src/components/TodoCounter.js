@@ -3,7 +3,7 @@ import '../styles/TodoCounter.css'
 import { TodoContext } from '../context/TodoContext'
 
 function TodoCounter() {
-
+    
     const {
         completedTodos,
         totalTodos

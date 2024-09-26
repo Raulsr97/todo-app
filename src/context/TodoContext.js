@@ -4,8 +4,23 @@ import { useState } from 'react'
 
 const TodoContext = React.createContext()
 
+// function Provider({ children}) {
+//   // Logica de la aplicacion
+//   return (
+//     <TodoContext.Provider value={{
+//       // Recibe todas las props de la aplicacion
+//     }}>
+//       { children }
+//     </TodoContext.Provider>
+//   )
+
+// }
+
+// export { contexto, provedor }
+
 function TodoProvider ({ children }) {
       // Estados
+  const [newTodo, setNewTodo] = useState('')
   const [searchValue, setSearchValue] = useState('')
   const {
     item: todos , 
@@ -19,31 +34,11 @@ function TodoProvider ({ children }) {
   const totalTodos = todos.length
   const searchedTodos = todos.filter(
     (todo) => {
-      return todo.text.toLowerCase().includes(searchValue.toLowerCase())
+      const todoText = todo.text || ''
+      const search = searchValue || ''
+      return todoText.toLowerCase().includes(search.toLowerCase())
     }
   )
-
-  // console.log('Log 1');
-
-  // Lo que este dentro de una funcion useEffect se renderizara hasta el ultimo
-  // useEffect(() => {
-  //   console.log('log 2');
-    
-  // })
-
-  // Si le pasamos un array vacio al final solo se va a renderizar una vez
-  // useEffect(() => {
-  //   console.log('log 2');
-  // }, [])
-
-  
-  // si le pasamos algun argumento se va a renderizar hasta que cierto evento suceda
-  // useEffect(() => {
-  //   console.log('log 2');
-    
-  // }, [totalTodos])
-
-  // console.log('log 3 ');
 
   const completeTodo = (text) => {
     const newTodos = [...todos]
@@ -53,8 +48,6 @@ function TodoProvider ({ children }) {
     newTodos[todoIndex].completed = true
     saveTodos(newTodos)
   }
-
-  
   const deleteTodo = (text) => {
     const newTodos = [...todos]
     const todoIndex = newTodos.findIndex(
@@ -64,6 +57,24 @@ function TodoProvider ({ children }) {
 
     saveTodos(newTodos)
   }
+  
+  const manejarCambio = evento => { 
+    setNewTodo(evento.target.value)
+  }
+  const agregarTarea = () => {
+    if(newTodo.trim() !== '') {
+
+      const nuevaTarea ={
+        text: newTodo,
+        completed: false
+      }
+
+      const newTodos = [...todos, nuevaTarea]
+      saveTodos(newTodos)
+      setNewTodo('')
+    }
+  }
+  
 
   return (
     <TodoContext.Provider value={{
@@ -75,7 +86,11 @@ function TodoProvider ({ children }) {
         searchedTodos,
         totalTodos,
         completeTodo,
-        deleteTodo
+        deleteTodo,
+        newTodo,
+        setNewTodo,
+        manejarCambio,
+        agregarTarea
     }}>
         {children}
     </TodoContext.Provider>
@@ -83,3 +98,5 @@ function TodoProvider ({ children }) {
 }
 
 export { TodoContext, TodoProvider }
+
+
