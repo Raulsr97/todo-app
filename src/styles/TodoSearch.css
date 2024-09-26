@@ -11,3 +11,7 @@
     font-weight: bold;
     color: #d6d6d5;
 }
+.todo-input:focus {
+    border: 2px solid #7b2cbf; 
+    box-shadow: 0 0 5px rgba(123, 44, 191, 0.5);
+}

@@ -10,7 +10,7 @@ function TodoCounter() {
     } = useContext(TodoContext)
 
     return(
-        <h1>Has completado <strong>{completedTodos}</strong>  de <strong>{totalTodos}</strong> TODOS</h1>
+        <h1>You have completed <strong>{completedTodos}</strong>  of <strong>{totalTodos}</strong> ToDoS</h1>
     )
 }
 

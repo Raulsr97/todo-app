@@ -6,7 +6,8 @@ function TodoCreate() {
 
     const {
         newTodo,
-        manejarCambio
+        manejarCambio,
+        manejarTeclaEnter
     } = useContext(TodoContext)
 
     return(
@@ -15,10 +16,10 @@ function TodoCreate() {
             placeholder="Create a new ToDo!"
             value={newTodo}
             onChange={manejarCambio}
+            onKeyPress={manejarTeclaEnter}
         >
-
-        </input>
+         </input>
     )
-}
+} 
 
 export default TodoCreate

@@ -4,7 +4,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 function TodoItem({ text, onComplete, onDelete, isCompleted }) {
     return(
-      <li className={ isCompleted ? 'todo-completed' : 'todo'}>
+      <li className={ isCompleted ? 'todo-completed' : 'todo'} >
         <p>{text}</p>
         <div>
           <span className=''>

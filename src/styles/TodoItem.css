@@ -18,6 +18,7 @@ p {
 .delete-icon {
     font-size: 25px;
     color: #c57ffe;
+    cursor: pointer;
 }
 .delete-icon:hover {
     color: red;

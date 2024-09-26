@@ -40,16 +40,14 @@ function App() {
           {(!loading && searchedTodos.length == 0) && <EmptyTodos />}
 
           {searchedTodos.map((todo, index) => (
-            <li key={index}>
             <TodoItem 
               isCompleted={todo.completed}
               text={todo.text} 
-              key={todo.text}
+              key={index}
               completed={todo.completed}
               onComplete={() => completeTodo(todo.text)}
               onDelete={() => deleteTodo(todo.text)}
             />
-            </li>
           ))}
         </TodoList>
         

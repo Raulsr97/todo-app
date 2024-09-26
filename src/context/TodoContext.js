@@ -61,6 +61,7 @@ function TodoProvider ({ children }) {
   const manejarCambio = evento => { 
     setNewTodo(evento.target.value)
   }
+  
   const agregarTarea = () => {
     if(newTodo.trim() !== '') {
 
@@ -72,6 +73,12 @@ function TodoProvider ({ children }) {
       const newTodos = [...todos, nuevaTarea]
       saveTodos(newTodos)
       setNewTodo('')
+    }
+  }
+  
+  const manejarTeclaEnter = evento => {
+    if(evento.key === 'Enter') {
+      agregarTarea()
     }
   }
   
@@ -90,7 +97,8 @@ function TodoProvider ({ children }) {
         newTodo,
         setNewTodo,
         manejarCambio,
-        agregarTarea
+        agregarTarea,
+        manejarTeclaEnter
     }}>
         {children}
     </TodoContext.Provider>
